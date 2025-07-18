@@ -684,7 +684,7 @@ function loadPledges(count) {
     pledgeWallBody.appendChild(row);
   });
   
-  loadMoreBtn.style.display = displayCount >= allPledges.length ? 'none' : 'inline-flex';
+  loadMoreBtn.style.display = displayCount >= allPledges.length ? 'none': 'inline-flex';
 }
 
 async function fetchPledges() {
@@ -734,7 +734,7 @@ async function handlePledgeSubmission(e) {
   const profile = document.getElementById('profile').value;
   const additional = document.getElementById('additional').value;
 
-  const commitmentCheckboxes = document.querySelectorAll('input[name="commitments"]:checked');
+  const commitmentCheckboxes = document.querySelectorAll('input[name="commitments"]: checked');
   if (commitmentCheckboxes.length < 3) {
     alert('Please select at least 3 climate commitments.');
     return;
