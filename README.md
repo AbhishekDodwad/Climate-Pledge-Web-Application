@@ -12,7 +12,7 @@ A responsive single-page website built to inspire and track climate action by al
 
 ## 🔗 Live Demo
 
-🌍 **Live Site:** [Your Live Link Here]([https://your-deployment-link.netlify.app](https://abhishekdodwad.github.io/Climate-Pledge-Web-Application/))  
+🌍 **Live Site:** [Your Live Link Here](https://abhishekdodwad.github.io/Climate-Pledge-Web-Application/)
 📁 **Source Code:** [GitHub Repository](https://github.com/AbhishekDodwad/Climate-Pledge-Web-Application)
 
 ---
