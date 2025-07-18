@@ -493,7 +493,7 @@
 
   <script>
 
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxvwbYZdmrO5PgQEgYZza86Bn8sphIotAYx4HA9mwk0vhqbodBSwtCv4EXuh3cKeh-nyQ/exec'; // Paste your web app URL here
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxvwbYZdmrO5PgQEgYZza86Bn8sphIotAYx4HA9mwk0vhqbodBSwtCv4EXuh3cKeh-nyQ/exec'; 
 
 
 const pledgeForm = document.getElementById('pledgeForm');
@@ -741,26 +741,16 @@ async function handlePledgeSubmission(e) {
   }
 
   const commitments = Array.from(commitmentCheckboxes).map(cb => cb.value);
-<<<<<<< HEAD
-  console.log(commitments);
-
-=======
   
->>>>>>> d0dafe5 (Add new files and folder)
   const pledge = {
     name,
     email,
     mobile,
     state,
     profile,
-<<<<<<< HEAD
-    //commitments,
-    additional
-=======
     commitments,
     additional,
     date: new Date().toISOString()
->>>>>>> d0dafe5 (Add new files and folder)
   };
 
   showCertificate(pledge);
