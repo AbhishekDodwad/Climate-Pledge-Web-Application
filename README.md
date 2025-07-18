@@ -12,8 +12,8 @@ A responsive single-page website built to inspire and track climate action by al
 
 ## 🔗 Live Demo
 
-🌍 **Live Site:** [Your Live Link Here](https://your-deployment-link.netlify.app)  
-📁 **Source Code:** [GitHub Repository](https://github.com/YourUsername/Climate-Pledge-WebApp)
+🌍 **Live Site:** [Your Live Link Here]([https://your-deployment-link.netlify.app](https://abhishekdodwad.github.io/Climate-Pledge-Web-Application/))  
+📁 **Source Code:** [GitHub Repository](https://github.com/AbhishekDodwad/Climate-Pledge-Web-Application)
 
 ---
 
@@ -65,7 +65,7 @@ A responsive single-page website built to inspire and track climate action by al
 
 | Frontend                    | Backend (Mock)           | Deployment     |
 |-----------------------------|--------------------------|----------------|
-| HTML5, TailwindCSS, JS      | Google Apps Script + Sheets | GitHub Pages / Netlify / Vercel |
+| HTML5, TailwindCSS, JS      | Google Apps Script + Sheets | GitHub Pages |
 
 ---
 
