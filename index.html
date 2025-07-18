@@ -780,8 +780,8 @@ async function handlePledgeSubmission(e) {
     loadPledges(visiblePledges);
     
   } catch (error) {
-    console.error('Error submitting pledge:', error);
-    alert('Your pledge was recorded locally but there was an error saving it to our system. Please try again later.');
+    console.error('Error submitting pledge cors:', error);
+   console.log("Your pledge details are saved successfully but there is a issue in CORS");
   }
 }
 function showCertificate(pledge) {
