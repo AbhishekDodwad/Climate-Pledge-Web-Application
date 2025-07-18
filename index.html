@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Climate Action Pledge - Join the movement for a sustainable future">
+  <title>Climate Action Pledge</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    
+    :root {
+      --primary: #2ecc71;
+      --secondary: #27ae60;
+      --dark: #2c3e50;
+      --light: #ecf0f1;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+    }
+    
+    .counter {
+      font-size: 2.5rem;
+      font-weight: bold;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    .pledge-card {
+      transition: all 0.3s ease;
+    }
+    
+    .pledge-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .certificate {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      border: 20px solid var(--primary);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .certificate::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%232ecc71" fill-opacity="0.05" d="M30,15 Q50,5 70,15 Q95,25 85,50 Q95,75 70,85 Q50,95 30,85 Q5,75 15,50 Q5,25 30,15 Z"/></svg>');
+      background-size: 150px;
+      opacity: 0.3;
+      z-index: 0;
+    }
+    
+    .certificate-content {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="bg-white shadow-md py-4 sticky top-0 z-50">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <div class="flex items-center">
+        <i class="fas fa-leaf text-2xl text-green-600 mr-2"></i>
+        <span class="text-xl font-bold text-green-600">Climate Pledge</span>
+      </div>
+      <div class="space-x-4">
+        <a href="#pledge" class="text-gray-700 hover:text-green-600 transition">Take Pledge</a>
+        <a href="#wall" class="text-gray-700 hover:text-green-600 transition">Pledge Wall</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="py-20 bg-gradient-to-r from-green-500 to-teal-500 text-white">
+    <div class="container mx-auto px-4 text-center">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">Join the Movement for a Greener Tomorrow</h1>
+        <p class="text-xl mb-8">Take the Climate Action Pledge today and be part of the solution to combat climate change. Your small steps can make a big difference.</p>
+        <a href="#pledge" class="inline-block bg-white text-green-600 font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition duration-300 transform hover:scale-105 shadow-lg">
+          Take the Pledge Now
+        </a>
+      </div>
+      <div class="mt-16 flex justify-center">
+        <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Diverse group of people planting trees and using sustainable energy sources" class="rounded-lg shadow-xl w-full max-w-4xl">
+      </div>
+    </div>
+  </section>
+
+  <!-- KPIs Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">Our Collective Impact</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div class="bg-gray-50 p-8 rounded-xl">
+          <div class="counter mb-2" id="totalPledges">134,827</div>
+          <p class="text-gray-600">Total Pledges Made</p>
+        </div>
+        <div class="bg-gray-50 p-8 rounded-xl">
+          <div class="mb-2 text-3xl font-bold text-green-600">1,000,000</div>
+          <p class="text-gray-600">Our Global Goal</p>
+        </div>
+        <div class="bg-gray-50 p-8 rounded-xl">
+          <div class="counter mb-2" id="dailyAverage">1,284</div>
+          <p class="text-gray-600">Daily Average Pledges</p>
+        </div>
+      </div>
+      
+      <div class="mt-12 max-w-4xl mx-auto">
+        <div class="relative pt-1">
+          <div class="flex mb-2 items-center justify-between">
+            <div>
+              <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-green-600 bg-green-200">
+                Pledge Progress
+              </span>
+            </div>
+            <div class="text-right">
+              <span class="text-xs font-semibold inline-block text-green-600" id="progressPercentage">13.5%</span>
+            </div>
+          </div>
+          <div class="overflow-hidden h-4 mb-4 text-xs flex rounded bg-green-200">
+            <div id="progressBar" style="width:13.5%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div>
+          <span id="studentCount" class="text-xl font-bold text-green-600">0</span>
+          <p class="text-sm text-gray-600">Students</p>
+        </div>
+        <div>
+          <span id="professionalCount" class="text-xl font-bold text-green-600">0</span>
+          <p class="text-sm text-gray-600">Working Professionals</p>
+        </div>
+        <div>
+          <span id="otherCount" class="text-xl font-bold text-green-600">0</span>
+          <p class="text-sm text-gray-600">Others</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Take Action Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">Why Take Climate Action?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div>
+          <img src="https://images.unsplash.com/photo-1615368144592-5b85bb5c4e2e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Comparison of healthy forest and deforested area" class="rounded-lg w-full h-auto">
+        </div>
+        <div>
+          <div class="space-y-6">
+            <div class="flex items-start">
+              <div class="flex-shrink-0 bg-green-100 p-3 rounded-full mr-4">
+                <i class="fas fa-exclamation-triangle text-green-600 text-xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold mb-2">The Climate Crisis is Real</h3>
+                <p class="text-gray-600">Global temperatures are rising at unprecedented rates, leading to extreme weather events, rising sea levels, and ecosystem collapse. Every fraction of a degree matters.</p>
+              </div>    
+            </div>
+            <div class="flex items-start">
+              <div class="flex-shrink-0 bg-green-100 p-3 rounded-full mr-4">
+                <i class="fas fa-users text-green-600 text-xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold mb-2">Collective Action Works</h3>
+                <p class="text-gray-600">When individuals come together to make sustainable choices, the cumulative impact can drive systemic change and push corporations and governments to act.</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <div class="flex-shrink-0 bg-green-100 p-3 rounded-full mr-4">
+                <i class="fas fa-seedling text-green-600 text-xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold mb-2">Simple Actions Matter</h3>
+                <p class="text-gray-600">Reducing waste, conserving energy, sustainable transportation - these everyday choices add up to significant carbon reductions when adopted by millions.</p>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8">
+            <a href="#pledge" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-green-600 hover:bg-green-700 transition">
+              Join the Movement
+              <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pledge Form Section -->
+  <section id="pledge" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">Make Your Climate Pledge</h2>
+      <div class="max-w-2xl mx-auto bg-gray-50 p-8 rounded-xl shadow-sm">
+        <form id="pledgeForm" class="space-y-6">
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+            <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition">
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+              <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition">
+            </div>
+            <div>
+              <label for="mobile" class="block text-sm font-medium text-gray-700 mb-1">Mobile Number *</label>
+              <input type="tel" id="mobile" name="mobile" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition">
+              <p class="mt-1 text-xs text-gray-500">Required for validation but never shown publicly</p>
+            </div>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="state" class="block text-sm font-medium text-gray-700 mb-1">State *</label>
+              <select id="state" name="state" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition">
+                <option value="">Select your state</option>
+                <option value="California">California</option>
+                <option value="Texas">Texas</option>
+                <option value="New York">New York</option>
+                <option value="Florida">Florida</option>
+                <option value="Illinois">Illinois</option>
+                <option value="Pennsylvania">Pennsylvania</option>
+                <option value="Ohio">Ohio</option>
+                <option value="Georgia">Georgia</option>
+                <option value="North Carolina">North Carolina</option>
+                <option value="Michigan">Michigan</option>
+              </select>
+            </div>
+            <div>
+              <label for="profile" class="block text-sm font-medium text-gray-700 mb-1">Profile *</label>
+              <select id="profile" name="profile" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition">
+                <option value="">Select your profile</option>
+                <option value="Student">Student</option>
+                <option value="Working Professional">Working Professional</option>
+                <option value="Educator">Educator</option>
+                <option value="Retired">Retired</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-3">Your Climate Commitments (Select at least 3) *</label>
+            
+            <div class="mb-4">
+              <h4 class="font-medium text-green-700 mb-2">Reduce Waste</h4>
+              <div class="space-y-3 pl-4">
+                <div class="flex items-start">
+                  <input type="checkbox" id="commitment1" name="commitments" value="Reduce single-use plastic" class="mt-1 h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
+                  <label for="commitment1" class="ml-2 text-sm text-gray-700">Reduce single-use plastic consumption by 50%</label>
+                </div>
+                <div class="flex items-start">
+                  <input type="checkbox" id="commitment2" name="commitments" value="Recycle properly" class="mt-1 h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
+                  <label for="commitment2" class="ml-2 text-sm text-gray-700">Recycle properly and reduce overall waste</label>
+                </div>
+                <div class="flex items-start">
+                  <input type="checkbox" id="commitment3" name="commitments" value="Compost food waste" class="mt-1 h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
+                  <label for="commitment3" class="ml-2 text-sm text-gray-700">Compost food waste when possible</label>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mb-4">
+              <h4 class="font-medium text-green-700 mb-2">Conserve Energy</h4>
+              <div class="space-y-3 pl-4">
+                <div class="flex items-start">
+                  <input type="checkbox" id="commitment4" name="commitments" value="Reduce energy use" class="mt-1 h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
+                  <label for="commitment4" class="ml-2 text-sm text-gray-700">Reduce home energy consumption by 10%</label>
+                </div>
+                <div class="flex items-start">
+                  <input type="checkbox" id="commitment5" name="commitments" value="Use LED bulbs" class="mt-1 h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
+                  <label for="commitment5" class="ml-2 text-sm text-gray-700">Switch to LED light bulbs</label>
+                </div>
+                <div class="flex items-start">
+                  <input type="checkbox" id="commitment6" name="commitments" value="Unplug devices" class="mt-1 h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
+                  <label for="commitment6" class="ml-2 text-sm text-gray-700">Unplug devices when not in use</label>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mb-4">
+              <h4 class="font-medium text-green-700 mb-2">Sustainable Living</h4>
+              <div class="space-y-3 pl-4">
+                <div class="flex items-start">
+                  <input type="checkbox" id="commitment7" name="commitments" value="Sustainable transport" class="mt-1 h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
+                  <label for="commitment7" class="ml-2 text-sm text-gray-700">Use sustainable transportation options</label>
+                </div>
+                <div class="flex items-start">
+                  <input type="checkbox" id="commitment8" name="commitments" value="Plant trees" class="mt-1 h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
+                  <label for="commitment8" class="ml-2 text-sm text-gray-700">Plant or support tree planting annually</label>
+                </div>
+                <div class="flex items-start">
+                  <input type="checkbox" id="commitment9" name="commitments" value="Sustainable diet" class="mt-1 h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
+                  <label for="commitment9" class="ml-2 text-sm text-gray-700">Adopt a more plant-based diet</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div>
+            <label for="additional" class="block text-sm font-medium text-gray-700 mb-1">Additional Pledge (Optional)</label>
+            <textarea id="additional" name="additional" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition"></textarea>
+          </div>
+          
+          <div class="flex items-start">
+            <input id="agree" name="agree" type="checkbox" required class="mt-1 h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
+            <label for="agree" class="ml-2 block text-sm text-gray-700">
+              I agree to the <a href="#" class="text-green-600 hover:text-green-800 underline">privacy policy</a> and understand my contact information will only be used for pledge validation and never shown publicly.
+            </label>
+          </div>
+          
+          <div>
+            <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-full shadow-sm text-lg font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-150 ease-in-out transform hover:scale-105">
+              Submit Pledge
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certificate Section (Hidden Initially) -->
+  <section id="certificateSection" class="py-16 bg-gray-50 hidden">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">Your Climate Action Certificate</h2>
+      <div class="max-w-4xl mx-auto">
+        <div class="certificate p-8 md:p-12 relative rounded-xl shadow-lg">
+          <div class="certificate-content text-center">
+            <div class="flex justify-center mb-6">
+              <i class="fas fa-award text-6xl text-green-600"></i>
+            </div>
+            <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Certificate of Climate Commitment</h3>
+            <p class="text-gray-600 mb-6">Presented to</p>
+            <h4 id="certName" class="text-3xl md:text-4xl font-bold text-green-600 mb-8"></h4>
+            
+            <p class="text-green-600 font-semibold mb-6 text-xl">Cool Enough to Care!</p>
+            
+            <p class="text-gray-700 max-w-2xl mx-auto mb-8">
+              For making a personal commitment to fight climate change through sustainable lifestyle choices and environmental stewardship. Your actions contribute to the global movement for a sustainable future.
+            </p>
+            
+            <div class="mb-8">
+              <div id="certRating" class="text-xl mb-2"></div>
+         <div class="flex justify-center space-x-2">
+  <i class="fas fa-star text-Yellow-500 text-2xl"></i>
+  <i class="fas fa-star text-yellow-500 text-2xl"></i>
+  <i class="fas fa-star text-yellow-500 text-2xl"></i>
+  <i class="fas fa-star text-yellow-500 text-2xl"></i>
+  <i class="fas fa-star text-yellow-500 text-2xl"></i>
+</div>
+
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <div class="text-left">
+                <p class="text-gray-600">Date of Pledge:</p>
+                <p id="certDate" class="font-semibold text-gray-800"></p>
+              </div>
+              <div class="text-left md:text-right">
+                <p class="text-gray-600">Pledge Score:</p>
+                <p id="certScore" class="font-semibold text-gray-800"></p>
+              </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4 mt-6">
+              <button id="printCertificate" class="inline-flex items-center px-6 py-2 border border-transparent text-base font-medium rounded-full shadow-sm text-green-700 bg-white hover:bg-gray-100 transition">
+                <i class="fas fa-print mr-2"></i> Print Certificate
+              </button>
+              <button id="shareCertificate" class="inline-flex items-center px-6 py-2 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-green-600 hover:bg-green-700 transition">
+                <i class="fas fa-share-alt mr-2"></i> Share Pledge
+              </button>
+              <button id="viewWall" class="inline-flex items-center px-6 py-2 border border-transparent text-base font-medium rounded-full shadow-sm text-green-700 bg-white hover:bg-gray-100 transition">
+                <i class="fas fa-users mr-2"></i> View Pledge Wall
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pledge Wall Section -->
+  <section id="wall" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">Pledge Wall</h2>
+      <p class="text-center text-gray-600 max-w-2xl mx-auto mb-8">
+        Join these climate champions who have already taken the pledge. Be inspired by their commitments and add your voice to the movement.
+      </p>
+      
+      <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead class="bg-gray-50">
+            <tr>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Location</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Profile</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Commitments</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Rating</th>
+            </tr>
+          </thead>
+          <tbody id="pledgeWallBody" class="bg-white divide-y divide-gray-200">
+            <!-- Pledges will be inserted here dynamically -->
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="mt-8 flex justify-center">
+        <button id="loadMore" class="inline-flex items-center px-6 py-2 border border-green-600 text-base font-medium rounded-full shadow-sm text-green-600 bg-white hover:bg-green-50 transition">
+          Load More Pledges
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy Section -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h3 class="text-2xl font-bold mb-6">Your Privacy Matters</h3>
+        <p class="text-gray-600 mb-6">
+          We respect your privacy. Your contact information is collected solely for validation purposes and will not be displayed publicly or shared with third parties. The public pledge wall only displays limited information to maintain anonymity while celebrating commitments to climate action.
+        </p>
+        <p class="text-gray-600">
+          By taking this pledge, you agree to join our mailing list for occasional updates about the climate initiative. You can unsubscribe at any time.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <div class="flex items-center mb-4">
+            <i class="fas fa-leaf text-2xl text-green-400 mr-2"></i>
+            <span class="text-xl font-bold">Climate Pledge</span>
+          </div>
+          <p class="text-gray-300">
+            Join the global movement for climate action. Every pledge counts towards our collective goal of 1 million commitments for a sustainable future.
+          </p>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="#pledge" class="text-gray-300 hover:text-white transition">Take the Pledge</a></li>
+            <li><a href="#wall" class="text-gray-300 hover:text-white transition">Pledge Wall</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition">About Us</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Stay Connected</h4>
+          <div class="flex space-x-4 mb-4">
+            <a href="#" class="text-gray-300 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-gray-300 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-gray-300 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-gray-300 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <p class="text-gray-300">
+            Subscribe to our newsletter for climate action tips and updates.
+          </p>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
+        <p>© 2023 Climate Pledge Initiative. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+// Configuration
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxvwbYZdmrO5PgQEgYZza86Bn8sphIotAYx4HA9mwk0vhqbodBSwtCv4EXuh3cKeh-nyQ/exec'; // Paste your web app URL here
+
+// DOM Elements
+const pledgeForm = document.getElementById('pledgeForm');
+const certificateSection = document.getElementById('certificateSection');
+const pledgeWallBody = document.getElementById('pledgeWallBody');
+const loadMoreBtn = document.getElementById('loadMore');
+const printBtn = document.getElementById('printCertificate');
+const shareBtn = document.getElementById('shareCertificate');
+const viewWallBtn = document.getElementById('viewWall');
+
+// KPI Elements
+const totalPledgesElement = document.getElementById('totalPledges');
+const dailyAverageElement = document.getElementById('dailyAverage');
+const progressPercentageElement = document.getElementById('progressPercentage');
+const progressBarElement = document.getElementById('progressBar');
+const studentCountElement = document.getElementById('studentCount');
+const professionalCountElement = document.getElementById('professionalCount');
+const otherCountElement = document.getElementById('otherCount');
+
+// Certificate Elements
+const certNameElement = document.getElementById('certName');
+const certDateElement = document.getElementById('certDate');
+const certScoreElement = document.getElementById('certScore');
+const certRatingElement = document.getElementById('certRating');
+
+// Variables
+let visiblePledges = 5;
+let allPledges = [];
+const totalPledgeGoal = 1000000;
+
+// Initialize the page
+document.addEventListener('DOMContentLoaded', function() {
+  // Load pledges from Google Sheets
+  fetchPledges().then(pledges => {
+    allPledges = pledges;
+    updateKPIs();
+    loadPledges(visiblePledges);
+  });
+  
+  // Form submission
+  pledgeForm.addEventListener('submit', handlePledgeSubmission);
+  
+  // Load more button
+  loadMoreBtn.addEventListener('click', function() {
+    visiblePledges += 5;
+    loadPledges(visiblePledges);
+  });
+  
+  // Print certificate
+  printBtn.addEventListener('click', function() {
+    window.print();
+  });
+  
+  // Share certificate
+  shareBtn.addEventListener('click', function() {
+    if (navigator.share) {
+      navigator.share({
+        title: 'My Climate Action Pledge',
+        text: 'I just took the Climate Action Pledge! Join me in making a difference.',
+        url: window.location.href
+      }).catch(err => {
+        console.log('Error sharing:', err);
+      });
+    } else {
+      alert('Share this URL: ' + window.location.href);
+    }
+  });
+  
+  // View wall button
+  viewWallBtn.addEventListener('click', function() {
+    document.getElementById('wall').scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+// Fetch pledges from Google Sheets
+async function fetchPledges() {
+  try {
+    const response = await fetch(`${GOOGLE_SCRIPT_URL}?action=get`);
+    const data = await response.json();
+    
+    // Check if the response is an array or an object
+    if (Array.isArray(data)) {
+      return data.map(pledge => ({
+        ...pledge,
+        commitments: pledge.commitments.split(', ')
+      }));
+      
+    } else {
+      // If it's an object, log the message and return an empty array
+      console.error('Unexpected response format:', data);
+      return [];
+    }
+  } catch (error) {
+    console.error('Error fetching pledges:', error);
+    return [];
+  }
+}
+
+
+// Update all KPIs
+function updateKPIs() {
+  const total = allPledges.length + 134000; // Starting with mock base number
+  const dailyAverage = Math.floor(total / (365 / 3));
+  const percentage = ((total / totalPledgeGoal) * 100).toFixed(1);
+
+  // Animate counters
+  animateCounter(totalPledgesElement, total);
+  animateCounter(dailyAverageElement, dailyAverage);
+
+  // Filtered profile counts
+  const students = allPledges.filter(p => p.profile === 'Student').length;
+  const professionals = allPledges.filter(p => p.profile === 'Working Professional').length;
+  const others = allPledges.length - students - professionals;
+
+  // Animate profile counters
+  animateCounter(studentCountElement, students);
+  animateCounter(professionalCountElement, professionals);
+  animateCounter(otherCountElement, others);
+
+  // Update progress
+  progressPercentageElement.textContent = `${percentage}%`;
+  progressBarElement.style.width = `${percentage}%`;
+}
+
+// Animate number counter
+function animateCounter(element, finalNumber) {
+  const duration = 2000;
+  const startNumber = parseInt(element.textContent.replace(/,/g, '')) || 0;
+  const range = finalNumber - startNumber;
+  const startTime = new Date().getTime();
+  const endTime = startTime + duration;
+  
+  function updateCounter() {
+    const now = new Date().getTime();
+    const remaining = Math.max((endTime - now) / duration, 0);
+    const value = Math.round(finalNumber - (remaining * range));
+    element.textContent = value.toLocaleString();
+    
+    if (value < finalNumber) {
+      requestAnimationFrame(updateCounter);
+    }
+  }
+  
+  requestAnimationFrame(updateCounter);
+}
+
+// Load pledges into the wall
+function loadPledges(count) {
+  pledgeWallBody.innerHTML = '';
+  
+  const displayCount = Math.min(count, allPledges.length);
+  const pledgesToShow = [...allPledges].reverse().slice(0, displayCount);
+  
+  if (pledgesToShow.length === 0) {
+    pledgeWallBody.innerHTML = `
+      <tr>
+        <td colspan="6" class="px-6 py-4 text-center text-gray-500">No pledges yet. Be the first to pledge!</td>
+      </tr>
+    `;
+    loadMoreBtn.classList.add('hidden');
+    return;
+  }
+  
+  pledgesToShow.forEach(pledge => {
+    const row = document.createElement('tr');
+    const rating = calculateRating(pledge.commitments.length, pledge.additional);
+    
+    row.innerHTML = `
+      <td class="px-6 py-4 whitespace-nowrap">
+        <div class="text-sm font-medium text-gray-900">${pledge.name}</div>
+      </td>
+      <td class="px-6 py-4 whitespace-nowrap">
+        <div class="text-sm text-gray-500">${pledge.state}</div>
+      </td>
+      <td class="px-6 py-4 whitespace-nowrap">
+        <div class="text-sm text-gray-500">${pledge.profile}</div>
+      </td>
+      <td class="px-6 py-4">
+        <div class="text-sm text-gray-500">${pledge.commitments.join(', ')}</div>
+      </td>
+      <td class="px-6 py-4 whitespace-nowrap">
+        <div class="text-sm text-gray-500">${new Date(pledge.date).toLocaleDateString()}</div>
+      </td>
+      <td class="px-6 py-4 whitespace-nowrap">
+        <div class="flex items-center">
+          ${getStarsHTML(rating)}
+          <span class="ml-2 text-sm text-gray-500">${rating}/5</span>
+        </div>
+      </td>
+    `;
+    
+    pledgeWallBody.appendChild(row);
+  });
+  
+  loadMoreBtn.style.display = displayCount >= allPledges.length ? 'none' : 'inline-flex';
+}
+
+// Handle form submission
+async function handlePledgeSubmission(e) {
+  e.preventDefault();
+
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const mobile = document.getElementById('mobile').value;
+  const state = document.getElementById('state').value;
+  const profile = document.getElementById('profile').value;
+  const additional = document.getElementById('additional').value;
+
+  const commitmentCheckboxes = document.querySelectorAll('input[name="commitments"]:checked');
+  if (commitmentCheckboxes.length < 3) {
+    alert('Please select at least 3 climate commitments.');
+    return;
+  }
+
+  const commitments = Array.from(commitmentCheckboxes).map(cb => cb.value);
+
+  const pledge = {
+    name,
+    email,
+    mobile,
+    state,
+    profile,
+    commitments,
+    additional
+  };
+
+  try {
+    console.log("Sending:", JSON.stringify(pledge));
+
+    const response = await fetch(GOOGLE_SCRIPT_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      mode: 'cors',
+      body: JSON.stringify(pledge)
+    });
+
+
+
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const updatedPledges = await response.json();
+    allPledges = updatedPledges.map(p => ({
+      ...p,
+      commitments: p.commitments.split(', ')
+    }));
+
+    updateKPIs();
+    pledgeForm.reset();
+    showCertificate({
+      ...pledge,
+      date: new Date().toISOString()
+    });
+    loadPledges(visiblePledges);
+    
+  } catch (error) {
+    console.error('Error submitting pledge:', error);
+    alert('There was an error submitting your pledge. Please try again.');
+  }
+}
+
+
+// Show certificate
+function showCertificate(pledge) {
+  const rating = calculateRating(pledge.commitments.length, pledge.additional);
+  
+  // Fill certificate
+  certNameElement.textContent = pledge.name;
+  certDateElement.textContent = new Date(pledge.date).toLocaleDateString();
+  certScoreElement.textContent = `${pledge.commitments.length} commitments selected`;
+  
+  // Set rating
+  const ratingText = ['Good start!', 'Making progress!', 'Strong commitment!', 'Very impressive!', 'Exceptional commitment!'][rating - 1];
+  certRatingElement.textContent = ratingText;
+  
+  // Highlight stars
+  const stars = document.querySelectorAll('#certRating ~ div .fa-star');
+  stars.forEach((star, index) => {
+    if (index < rating) {
+      star.classList.remove('text-green-500');
+      star.classList.add('text-yellow-500');
+    } else {
+      star.classList.remove('text-yellow-500');
+      star.classList.add('text-green-500');
+    }
+  });
+  
+  // Show certificate section and scroll to it
+  certificateSection.classList.remove('hidden');
+  certificateSection.scrollIntoView({ behavior: 'smooth' });
+}
+
+// Calculate pledge rating (1-5 stars)
+function calculateRating(commitmentCount, additional) {
+  let rating = Math.min(commitmentCount, 5);
+  if (additional && additional.trim().length > 0) rating += 0.5;
+  return Math.min(Math.max(Math.floor(rating), 1), 5);
+}
+
+// Get stars HTML for rating
+function getStarsHTML(rating) {
+  let html = '';
+  for (let i = 1; i <= 5; i++) {
+    const color = i <= rating ? 'text-yellow-500' : 'text-gray-300';
+    html += `<i class="fas fa-star ${color}"></i>`;
+  }
+  return html;
+}
+  </script>
+</body>
+</html>
