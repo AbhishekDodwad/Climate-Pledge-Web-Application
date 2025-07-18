@@ -100,12 +100,12 @@
         </a>
       </div>
       <div class="mt-16 flex justify-center">
-        <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Diverse group of people planting trees and using sustainable energy sources" class="rounded-lg shadow-xl w-full max-w-4xl">
+        <img src="images/photo-1466611653911-95081537e5b7.avif" class="rounded-lg shadow-xl w-full max-w-4xl">
       </div>
     </div>
   </section>
 
-  <!-- KPIs Section -->
+  <!-- KPIs  -->
   <section class="py-16 bg-white">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-bold text-center mb-12">Our Collective Impact</h2>
@@ -159,13 +159,13 @@
     </div>
   </section>
 
-  <!-- Why Take Action Section -->
+  <!--  Action  -->
   <section class="py-16 bg-gray-50">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-bold text-center mb-12">Why Take Climate Action?</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div>
-          <img src="https://images.unsplash.com/photo-1615368144592-5b85bb5c4e2e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Comparison of healthy forest and deforested area" class="rounded-lg w-full h-auto">
+          <img src="images/download.jpg" alt="Comparison of healthy forest and deforested area" class="rounded-lg w-full h-auto">
         </div>
         <div>
           <div class="space-y-6">
@@ -208,7 +208,7 @@
     </div>
   </section>
 
-  <!-- Pledge Form Section -->
+  <!--Form -->
   <section id="pledge" class="py-16 bg-white">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-bold text-center mb-12">Make Your Climate Pledge</h2>
@@ -341,7 +341,7 @@
     </div>
   </section>
 
-  <!-- Certificate Section (Hidden Initially) -->
+  <!-- Certificate  -->
   <section id="certificateSection" class="py-16 bg-gray-50 hidden">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-bold text-center mb-12">Your Climate Action Certificate</h2>
@@ -401,7 +401,7 @@
     </div>
   </section>
 
-  <!-- Pledge Wall Section -->
+  <!-- Pledge  Section -->
   <section id="wall" class="py-16 bg-white">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-bold text-center mb-12">Pledge Wall</h2>
@@ -422,7 +422,7 @@
             </tr>
           </thead>
           <tbody id="pledgeWallBody" class="bg-white divide-y divide-gray-200">
-            <!-- Pledges will be inserted here dynamically -->
+            
           </tbody>
         </table>
       </div>
@@ -435,7 +435,7 @@
     </div>
   </section>
 
-  <!-- Privacy Section -->
+  
   <section class="py-12 bg-gray-50">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto text-center">
@@ -492,10 +492,10 @@
   </footer>
 
   <script>
-// Configuration
+
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxvwbYZdmrO5PgQEgYZza86Bn8sphIotAYx4HA9mwk0vhqbodBSwtCv4EXuh3cKeh-nyQ/exec'; // Paste your web app URL here
 
-// DOM Elements
+
 const pledgeForm = document.getElementById('pledgeForm');
 const certificateSection = document.getElementById('certificateSection');
 const pledgeWallBody = document.getElementById('pledgeWallBody');
@@ -504,7 +504,7 @@ const printBtn = document.getElementById('printCertificate');
 const shareBtn = document.getElementById('shareCertificate');
 const viewWallBtn = document.getElementById('viewWall');
 
-// KPI Elements
+
 const totalPledgesElement = document.getElementById('totalPledges');
 const dailyAverageElement = document.getElementById('dailyAverage');
 const progressPercentageElement = document.getElementById('progressPercentage');
@@ -513,41 +513,41 @@ const studentCountElement = document.getElementById('studentCount');
 const professionalCountElement = document.getElementById('professionalCount');
 const otherCountElement = document.getElementById('otherCount');
 
-// Certificate Elements
+// Certificate 
 const certNameElement = document.getElementById('certName');
 const certDateElement = document.getElementById('certDate');
 const certScoreElement = document.getElementById('certScore');
 const certRatingElement = document.getElementById('certRating');
 
-// Variables
+
 let visiblePledges = 5;
 let allPledges = [];
 const totalPledgeGoal = 1000000;
 
-// Initialize the page
+
 document.addEventListener('DOMContentLoaded', function() {
-  // Load pledges from Google Sheets
+ 
   fetchPledges().then(pledges => {
     allPledges = pledges;
     updateKPIs();
     loadPledges(visiblePledges);
   });
   
-  // Form submission
+ 
   pledgeForm.addEventListener('submit', handlePledgeSubmission);
   
-  // Load more button
+  
   loadMoreBtn.addEventListener('click', function() {
     visiblePledges += 5;
     loadPledges(visiblePledges);
   });
   
-  // Print certificate
+ 
   printBtn.addEventListener('click', function() {
     window.print();
   });
   
-  // Share certificate
+
   shareBtn.addEventListener('click', function() {
     if (navigator.share) {
       navigator.share({
@@ -562,19 +562,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  // View wall button
+
   viewWallBtn.addEventListener('click', function() {
     document.getElementById('wall').scrollIntoView({ behavior: 'smooth' });
   });
 });
 
-// Fetch pledges from Google Sheets
+
 async function fetchPledges() {
   try {
     const response = await fetch(`${GOOGLE_SCRIPT_URL}?action=get`);
     const data = await response.json();
     
-    // Check if the response is an array or an object
+
     if (Array.isArray(data)) {
       return data.map(pledge => ({
         ...pledge,
@@ -582,7 +582,7 @@ async function fetchPledges() {
       }));
       
     } else {
-      // If it's an object, log the message and return an empty array
+
       console.error('Unexpected response format:', data);
       return [];
     }
@@ -593,32 +593,29 @@ async function fetchPledges() {
 }
 
 
-// Update all KPIs
+
 function updateKPIs() {
-  const total = allPledges.length + 134000; // Starting with mock base number
+  const total = allPledges.length + 134000;
   const dailyAverage = Math.floor(total / (365 / 3));
   const percentage = ((total / totalPledgeGoal) * 100).toFixed(1);
 
-  // Animate counters
+
   animateCounter(totalPledgesElement, total);
   animateCounter(dailyAverageElement, dailyAverage);
 
-  // Filtered profile counts
+
   const students = allPledges.filter(p => p.profile === 'Student').length;
   const professionals = allPledges.filter(p => p.profile === 'Working Professional').length;
   const others = allPledges.length - students - professionals;
 
-  // Animate profile counters
   animateCounter(studentCountElement, students);
   animateCounter(professionalCountElement, professionals);
   animateCounter(otherCountElement, others);
 
-  // Update progress
   progressPercentageElement.textContent = `${percentage}%`;
   progressBarElement.style.width = `${percentage}%`;
 }
 
-// Animate number counter
 function animateCounter(element, finalNumber) {
   const duration = 2000;
   const startNumber = parseInt(element.textContent.replace(/,/g, '')) || 0;
@@ -640,7 +637,6 @@ function animateCounter(element, finalNumber) {
   requestAnimationFrame(updateCounter);
 }
 
-// Load pledges into the wall
 function loadPledges(count) {
   pledgeWallBody.innerHTML = '';
   
@@ -691,7 +687,43 @@ function loadPledges(count) {
   loadMoreBtn.style.display = displayCount >= allPledges.length ? 'none' : 'inline-flex';
 }
 
-// Handle form submission
+async function fetchPledges() {
+  try {
+    const response = await fetch(GOOGLE_SCRIPT_URL);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const pledges = await response.json();
+    
+    allPledges = pledges.map(pledge => ({
+      ...pledge,
+      commitments: processCommitments(pledge.commitments)
+    }));
+    
+    updateKPIs();
+    loadPledges(visiblePledges);
+    
+  } catch (error) {
+    console.error('Error fetching pledges:', error);
+    allPledges = [];
+    updateKPIs();
+    loadPledges(visiblePledges);
+  }
+}
+
+function processCommitments(commitments) {
+  if (Array.isArray(commitments)) {
+    return commitments;
+  }
+  
+  if (typeof commitments === 'string' && commitments.length > 0) {
+    return commitments.split(', ').filter(commitment => commitment.trim() !== '');
+  }
+  
+  return [];
+}
+
 async function handlePledgeSubmission(e) {
   e.preventDefault();
 
@@ -709,18 +741,30 @@ async function handlePledgeSubmission(e) {
   }
 
   const commitments = Array.from(commitmentCheckboxes).map(cb => cb.value);
+<<<<<<< HEAD
   console.log(commitments);
 
+=======
+  
+>>>>>>> d0dafe5 (Add new files and folder)
   const pledge = {
     name,
     email,
     mobile,
     state,
     profile,
+<<<<<<< HEAD
     //commitments,
     additional
+=======
+    commitments,
+    additional,
+    date: new Date().toISOString()
+>>>>>>> d0dafe5 (Add new files and folder)
   };
 
+  showCertificate(pledge);
+  
   try {
     console.log("Sending:", JSON.stringify(pledge));
 
@@ -729,52 +773,39 @@ async function handlePledgeSubmission(e) {
       headers: {
         'Content-Type': 'application/json',
       },
-      mode: 'cors',
       body: JSON.stringify(pledge)
     });
-
-
-
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
     const updatedPledges = await response.json();
+    
     allPledges = updatedPledges.map(p => ({
       ...p,
-      commitments: p.commitments.split(', ')
+      commitments: processCommitments(p.commitments)
     }));
 
     updateKPIs();
     pledgeForm.reset();
-    showCertificate({
-      ...pledge,
-      date: new Date().toISOString()
-    });
     loadPledges(visiblePledges);
     
   } catch (error) {
     console.error('Error submitting pledge:', error);
-    alert('There was an error submitting your pledge. Please try again.');
+    alert('Your pledge was recorded locally but there was an error saving it to our system. Please try again later.');
   }
 }
-
-
-// Show certificate
 function showCertificate(pledge) {
   const rating = calculateRating(pledge.commitments.length, pledge.additional);
   
-  // Fill certificate
   certNameElement.textContent = pledge.name;
   certDateElement.textContent = new Date(pledge.date).toLocaleDateString();
   certScoreElement.textContent = `${pledge.commitments.length} commitments selected`;
   
-  // Set rating
   const ratingText = ['Good start!', 'Making progress!', 'Strong commitment!', 'Very impressive!', 'Exceptional commitment!'][rating - 1];
   certRatingElement.textContent = ratingText;
   
-  // Highlight stars
   const stars = document.querySelectorAll('#certRating ~ div .fa-star');
   stars.forEach((star, index) => {
     if (index < rating) {
@@ -786,19 +817,16 @@ function showCertificate(pledge) {
     }
   });
   
-  // Show certificate section and scroll to it
   certificateSection.classList.remove('hidden');
   certificateSection.scrollIntoView({ behavior: 'smooth' });
 }
 
-// Calculate pledge rating (1-5 stars)
 function calculateRating(commitmentCount, additional) {
   let rating = Math.min(commitmentCount, 5);
   if (additional && additional.trim().length > 0) rating += 0.5;
   return Math.min(Math.max(Math.floor(rating), 1), 5);
 }
 
-// Get stars HTML for rating
 function getStarsHTML(rating) {
   let html = '';
   for (let i = 1; i <= 5; i++) {
