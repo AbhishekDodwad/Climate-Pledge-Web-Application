@@ -709,6 +709,7 @@ async function handlePledgeSubmission(e) {
   }
 
   const commitments = Array.from(commitmentCheckboxes).map(cb => cb.value);
+  console.log(commitments);
 
   const pledge = {
     name,
@@ -716,7 +717,7 @@ async function handlePledgeSubmission(e) {
     mobile,
     state,
     profile,
-    commitments,
+    //commitments,
     additional
   };
 
